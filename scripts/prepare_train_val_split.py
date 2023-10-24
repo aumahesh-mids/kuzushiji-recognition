@@ -43,6 +43,7 @@ if __name__ == '__main__':
     splits = cv.split(image_paths, groups=group_labels)
 
     for i, (train_indices, val_indices) in enumerate(splits):
+        print(train_indices, val_indices)
         table_train = table.iloc[train_indices]
         table_val = table.iloc[val_indices]
 
