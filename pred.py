@@ -4,9 +4,9 @@ import numpy as np
 import chainer
 from PIL.Image import Image
 
-from kr.classifier.softmax.mobilenetv3 import MobileNetV3
-from kr.datasets import KuzushijiUnicodeMapping
-from kr.detector.centernet.resnet import Res18UnetCenterNet
+from hanya.kr.classifier.softmax.mobilenetv3 import MobileNetV3
+from hanya.kr.datasets.kuzushiji_recognition import KuzushijiUnicodeMapping
+from hanya.kr.detector.centernet.resnet import Res18UnetCenterNet
 
 
 class HanyaOCR:
@@ -55,8 +55,8 @@ def init_argparse() -> argparse.ArgumentParser:
     return parser
 
 def do_ocr(detector_model, classifier_model, filename):
-    hanya_ocr = HanyaOCR(args.detector_model, args.classifier_model)
-    return hanya_ocr.ocr(args.file)
+    hanya_ocr = HanyaOCR(detector_model, classifier_model)
+    return hanya_ocr.ocr(filename)
 
 
 if __name__ == '__main__':
